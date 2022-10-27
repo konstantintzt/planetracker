@@ -7,7 +7,7 @@ const app = express()
 const PORT = process.env.PORT
 
 app.use(express.static("public"))
-app.use("js", express.static(__dirname + "/public/js"))
+app.use("planes/js", express.static(__dirname + "/public/js"))
 
 app.listen(PORT, () => {
     console.log("Web server started at port " + PORT);

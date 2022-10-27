@@ -2,6 +2,7 @@ const location = require("./location")
 const dotenv = require("dotenv")
 const express = require("express")
 const database = require("./database")
+const cors = require("cors")
 
 dotenv.config()
 
@@ -9,6 +10,10 @@ const PORT = process.env.PORT
 const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY
 
 const app = express()
+
+app.use(cors({
+    origin: "http://tzantchev.com",
+}))
 
 app.get("/locate", (req, res) => {
 
@@ -20,7 +25,6 @@ app.get("/locate", (req, res) => {
     }
     location.getPlaneDataForLocation(req.query.location, GOOGLE_API_KEY)
     .then(result => {
-        res.writeHead(200, {'Access-Control-Allow-Origin': '*'})
         res.end(JSON.stringify(result))
     })
     .catch(err => {
