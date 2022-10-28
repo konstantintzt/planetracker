@@ -1,5 +1,5 @@
 # Plane Tracker
-**Try it yourself!**: [planes.tzantchev.com](http://planes.tzantchev.com)
+**Try it yourself!**: [tzantchev.com/planes](http://tzantchev.com/planes)
 
 My plane tracker is an interactive website where you can find more information about the planes flying near your!
 
