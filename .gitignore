@@ -2,3 +2,4 @@
 /frontend/node_modules
 /backend/.env
 /frontend/.env
+*.pem

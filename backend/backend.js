@@ -3,6 +3,8 @@ const dotenv = require("dotenv")
 const express = require("express")
 const database = require("./database")
 const cors = require("cors")
+const https = require("https")
+const fs = require("fs")
 
 dotenv.config()
 
@@ -12,7 +14,7 @@ const GOOGLE_API_KEY = process.env.GOOGLE_API_KEY
 const app = express()
 
 app.use(cors({
-    origin: "http://tzantchev.com",
+    origin: "https://tzantchev.com",
 }))
 
 app.get("/locate", (req, res) => {
@@ -33,7 +35,11 @@ app.get("/locate", (req, res) => {
     })
 })
 
-app.listen(PORT, () => {
+https.createServer({
+    key: fs.readFileSync("privkey.pem"),
+    cert: fs.readFileSync("cert.pem"),
+    ca: fs.readFileSync("chain.pem")
+}, app).listen(PORT, () => {
     database.createConnection({
         port: process.env.DB_PORT,
         user: process.env.DB_USER,
