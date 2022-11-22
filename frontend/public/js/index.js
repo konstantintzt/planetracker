@@ -4,7 +4,7 @@ const onTheGroundIcon = '<svg style="width:24px;height:24px" viewBox="0 0 24 24"
 
 function fetchPlaneData() {
     const location = encodeURIComponent(document.getElementById("location").value)
-    fetch("http://tzantchev.com:2022/locate?location="+location)
+    fetch("https://tzantchev.com:2022/locate?location="+location)
     .then(res => res.json())
     .then(data => {
         const instant = data.response.time
