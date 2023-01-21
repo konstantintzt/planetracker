@@ -14,7 +14,6 @@ async function getPlanesNearCoordinates(lat, lng, location){
     if (response.status != 200) {
         return { success: false, response: undefined}
     } else {
-
         const planeInfo = await getInformationAboutPlane(response.icao24)
         return { success: true, response: response.data, plane: planeInfo}
     }

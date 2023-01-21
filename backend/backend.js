@@ -45,7 +45,9 @@ https.createServer({
         user: process.env.DB_USER,
         host: process.env.DB_HOST,
         password: process.env.DB_PASSWORD,
-        database: process.env.DB
+        database: process.env.DB,
+        keepAliveInitialDelay: 1000,
+        enableKeepAlive: true
     })
     .then(() => {
         console.log("The API is running 🚀");

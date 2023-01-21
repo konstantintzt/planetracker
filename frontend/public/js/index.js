@@ -63,7 +63,7 @@ function generatePlaneCard(data) {
     const thirdLine = generateLine([
         ["Last Contacted", new Date(lastContact*1000).toISOString().replace("T", " @ ").replace("Z", "").slice(0, -4) + " UTC", undefined]
     ])
-    const fourthLine = '<div style="padding: 5px"><a href="https://www.planespotters.net/search?q='+processedData.icao24+'" target="_blank" type="button" class="btn btn-secondary">See plane info</><i class="fa-solid fa-up-right-from-square"></i></div>'
+    const fourthLine = '<div style="padding: 5px"><a href="https://globe.adsbexchange.com/?icao='+processedData.icao24+'" target="_blank" type="button" class="btn btn-secondary">See plane info & flight path</><i class="fa-solid fa-up-right-from-square"></i></div>'
 
     return '<li class="list-group-item">'+firstLine+secondLine+thirdLine+fourthLine+'</li>'
 
